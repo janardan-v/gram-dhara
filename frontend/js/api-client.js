@@ -45,7 +45,7 @@ const apiRequest = async (endpoint, options = {}) => {
             if (response.status === 401) {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
-                window.location.href = '/login.html';
+                window.location.href = '/login/login.html';
                 return;
             }
             throw new Error(data.message || `HTTP error! status: ${response.status}`);

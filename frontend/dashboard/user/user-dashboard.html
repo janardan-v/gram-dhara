@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Gram Dhara</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="../../images/fab-icon.png" alt="Gram Dhara Logo" class="sidebar-logo">
+                <h3>Gram Dhara</h3>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#"><i class="bi bi-speedometer2"></i> <span>Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="bi bi-megaphone"></i> <span>Notices</span></a>
+                    </li>
+                    <li>
+                        <a href="new-report.html"><i class="bi bi-plus-circle"></i> <span>New Report</span></a>
+                    </li>
+                    <li>
+                        <a href="my-reports.html"><i class="bi bi-list-check"></i> <span>My Reports</span></a>
+                    </li>
+                    <li>
+                        <a href="water-quality.html"><i class="bi bi-droplet"></i> <span>Water Quality</span></a>
+                    </li>
+                    <li>
+                        <a href="pump-status.html"><i class="bi bi-activity"></i> <span>Pump Status</span></a>
+                    </li>
+                    <li>
+                        <a href="notifications.html"><i class="bi bi-bell"></i> <span>Notifications</span></a>
+                    </li>
+                    <li>
+                        <a href="settings.html"><i class="bi bi-gear"></i> <span>Settings</span></a>
+                    </li>
+                    <li class="separator"></li>
+                    <li>
+                        <a href="../../index.html" class="logout"><i class="bi bi-box-arrow-right"></i> <span>Logout</span></a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>&copy; 2025 Gram Dhara</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+
+            <!-- Top Header with user info and search -->
+            <header class="dashboard-header">
+                <div class="search-container">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+
+                <div class="user-menu">
+                    <button class="notifications" id="notification-link">
+                        <i class="bi bi-bell"></i>
+                        <span class="badge">4</span>
+                    </button>
+
+                    <div class="user-profile">
+                        <img src="../../images/avatar.png" alt="User Profile">
+                        <div class="user-info">
+                            <h4 id="user-name">User</h4>
+                            <p>Village Water Committee</p>
+                        </div>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-text">
+                    <h1>Welcome back, User!</h1>
+                    <p>Here's your water management dashboard</p>
+                </div>
+                <div class="date-time">
+                    <p id="current-date"><i class="bi bi-calendar3"></i> October 15, 2023</p>
+                </div>
+            </section>
+
+            <!-- Quick Stats Cards -->
+            <section class="stats-section">
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="card-icon blue">
+                            <i class="bi bi-droplet"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>92%</h3>
+                            <p>Water Quality</p>
+                        </div>
+                        <div class="card-stats">
+                            <p><i class="bi bi-arrow-up"></i> 5% this month</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="card-icon green">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>7</h3>
+                            <p>Issues Resolved</p>
+                        </div>
+                        <div class="card-stats">
+                            <p><i class="bi bi-arrow-up"></i> 2 this week</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="card-icon orange">
+                            <i class="bi bi-hourglass-split"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>3</h3>
+                            <p>In Progress</p>
+                        </div>
+                        <div class="card-stats">
+                            <p>Avg. Resolve: <br> 3 days</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="card-icon purple">
+                            <i class="bi bi-lightning"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>86%</h3>
+                            <p>Pump Efficiency</p>
+                        </div>
+                        <div class="card-stats">
+                            <p><i class="bi bi-arrow-up"></i> From 82% <br>last month</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Water Status and Activity Sections -->
+            <div class="dashboard-grid">
+                <!-- Water Supply Status -->
+                <section class="water-supply-status card-module">
+                    <div class="section-header">
+                        <h2><i class="bi bi-droplet mr-2"></i>Water Supply Status</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+
+                    <div class="status-container">
+                        <div class="status-item">
+                            <div class="status-icon active">
+                                <i class="bi bi-droplet-fill"></i>
+                            </div>
+                            <div class="status-details">
+                                <h3>Main Water Tank</h3>
+                                <p>Water level: 85%</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                                <div class="status-meta">
+                                    <span><i class="bi bi-clock"></i> Updated: 30 min ago</span>
+                                    <span class="status-active"><i class="bi bi-check-circle-fill"></i> Active</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="status-item">
+                            <div class="status-icon maintenance">
+                                <i class="bi bi-tools"></i>
+                            </div>
+                            <div class="status-details">
+                                <h3>Secondary Water Tank</h3>
+                                <p>Water level: 40%</p>
+                                <div class="progress-bar">
+                                    <div class="progress warning" style="width: 40%"></div>
+                                </div>
+                                <div class="status-meta">
+                                    <span><i class="bi bi-clock"></i> Updated: 45 min ago</span>
+                                    <span class="status-maintenance"><i class="bi bi-exclamation-triangle-fill"></i> Maintenance</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="status-item">
+                            <div class="status-icon active">
+                                <i class="bi bi-moisture"></i>
+                            </div>
+                            <div class="status-details">
+                                <h3>Community Filtration System</h3>
+                                <p>Filter status: Good</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                                <div class="status-meta">
+                                    <span><i class="bi bi-calendar3"></i> Next maintenance: Oct 25</span>
+                                    <span class="status-active"><i class="bi bi-check-circle-fill"></i> Active</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Activity Timeline -->
+                <section class="activity-timeline card-module">
+                    <div class="section-header">
+                        <h2><i class="bi bi-clock-history mr-2"></i>Recent Activity</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-icon blue">
+                                <i class="bi bi-droplet-half"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Water Quality Test Completed</h3>
+                                <p>All parameters within acceptable limits.</p>
+                                <span class="timeline-time">Today, 10:30 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-icon green">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Pipe Leak Repaired</h3>
+                                <p>Leak in main distribution line fixed by maintenance team.</p>
+                                <span class="timeline-time">Yesterday, 3:45 PM</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-icon orange">
+                                <i class="bi bi-gear"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Pump Maintenance Performed</h3>
+                                <p>Regular maintenance completed on main water pump.</p>
+                                <span class="timeline-time">Oct 13, 9:15 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-icon purple">
+                                <i class="bi bi-file-earmark-plus"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>New Issue Reported</h3>
+                                <p>Low water pressure in North sector reported.</p>
+                                <span class="timeline-time">Oct 12, 8:30 AM</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Upcoming Maintenance and Quick Actions -->
+            <div class="dashboard-grid">
+                <!-- Water Quality Metrics -->
+                <section class="water-quality card-module">
+                    <div class="section-header">
+                        <h2><i class="bi bi-eyedropper mr-2"></i>Water Quality Metrics</h2>
+                        <a href="water-quality.html" class="view-all">View Details</a>
+                    </div>
+
+                    <div class="quality-metrics">
+                        <div class="quality-card">
+                            <div class="quality-icon good">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div class="quality-details">
+                                <h3>pH Level</h3>
+                                <div class="metric-value">7.2</div>
+                                <p class="metric-range">Normal Range: 6.5-8.5</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quality-card">
+                            <div class="quality-icon good">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div class="quality-details">
+                                <h3>Chlorine</h3>
+                                <div class="metric-value">0.8 mg/L</div>
+                                <p class="metric-range">Normal Range: 0.2-1.0 mg/L</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quality-card">
+                            <div class="quality-icon warning">
+                                <i class="bi bi-shield-exclamation"></i>
+                            </div>
+                            <div class="quality-details">
+                                <h3>Turbidity</h3>
+                                <div class="metric-value">3.8 NTU</div>
+                                <p class="metric-range">Normal Range: < 5 NTU</p>
+                                <div class="progress-bar">
+                                    <div class="progress warning" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quality-card">
+                            <div class="quality-icon good">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div class="quality-details">
+                                <h3>Bacteria</h3>
+                                <div class="metric-value">Not Detected</div>
+                                <p class="metric-range">Standard: None detectable</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Actions -->
+                <section class="quick-actions card-module">
+                    <div class="section-header">
+                        <h2><i class="bi bi-lightning mr-2"></i>Quick Actions</h2>
+                    </div>
+
+                    <div class="actions-grid">
+                        <a href="new-report.html" class="action-card">
+                            <div class="action-icon">
+                                <i class="bi bi-exclamation-circle"></i>
+                            </div>
+                            <span>Report Issue</span>
+                        </a>
+                        <a href="water-quality.html" class="action-card">
+                            <div class="action-icon">
+                                <i class="bi bi-droplet"></i>
+                            </div>
+                            <span>Check Quality</span>
+                        </a>
+                        <a href="pump-status.html" class="action-card">
+                            <div class="action-icon">
+                                <i class="bi bi-activity"></i>
+                            </div>
+                            <span>Pump Status</span>
+                        </a>
+                        <a href="#" class="action-card" id="emergency-contact-btn">
+                            <div class="action-icon emergency">
+                                <i class="bi bi-telephone-plus"></i>
+                            </div>
+                            <span>Emergency</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Notices Section - New -->
+            <section class="notices card-module">
+                <div class="section-header">
+                    <h2><i class="bi bi-megaphone mr-2"></i>Latest Notices</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+
+                <div class="notices-container">
+                    <div class="notice-item">
+                        <div class="notice-icon">
+                            <i class="bi bi-exclamation-circle"></i>
+                        </div>
+                        <div class="notice-details">
+                            <h3>Scheduled Water Supply Interruption</h3>
+                            <p>Due to maintenance works, water supply will be interrupted in North Sector on Oct 20.</p>
+                            <div class="notice-meta">
+                                <span><i class="bi bi-calendar3"></i> Posted: Oct 15, 2023</span>
+                                <span class="notice-urgent"><i class="bi bi-exclamation-triangle-fill"></i> Important</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notice-item">
+                        <div class="notice-icon info">
+                            <i class="bi bi-info-circle"></i>
+                        </div>
+                        <div class="notice-details">
+                            <h3>Water Conservation Advisory</h3>
+                            <p>Due to reduced rainfall, all residents are advised to use water judiciously until further notice.</p>
+                            <div class="notice-meta">
+                                <span><i class="bi bi-calendar3"></i> Posted: Oct 10, 2023</span>
+                                <span class="notice-info"><i class="bi bi-info-circle-fill"></i> Advisory</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Upcoming Maintenance -->
+            <section class="upcoming-maintenance card-module">
+                <div class="section-header">
+                    <h2><i class="bi bi-tools mr-2"></i>Upcoming Maintenance Schedule</h2>
+                    <a href="#" class="view-all">View Calendar</a>
+                </div>
+
+                <div class="maintenance-list">
+                    <div class="maintenance-item">
+                        <div class="maintenance-icon">
+                            <i class="bi bi-wrench"></i>
+                        </div>
+                        <div class="maintenance-details">
+                            <h3>Pump Servicing</h3>
+                            <p>Regular maintenance of main water pump system</p>
+                            <p class="maintenance-date"><i class="bi bi-calendar3"></i> Oct 25, 2023, 9:00 AM - 12:00 PM</p>
+                        </div>
+                        <div class="maintenance-status upcoming">
+                            Upcoming
+                        </div>
+                    </div>
+
+                    <div class="maintenance-item">
+                        <div class="maintenance-icon">
+                            <i class="bi bi-funnel"></i>
+                        </div>
+                        <div class="maintenance-details">
+                            <h3>Filter Replacement</h3>
+                            <p>Replacing filters in community filtration system</p>
+                            <p class="maintenance-date"><i class="bi bi-calendar3"></i> Nov 5, 2023, 10:00 AM - 2:00 PM</p>
+                        </div>
+                        <div class="maintenance-status scheduled">
+                            Scheduled
+                        </div>
+                    </div>
+
+                    <div class="maintenance-item">
+                        <div class="maintenance-icon">
+                            <i class="bi bi-droplet"></i>
+                        </div>
+                        <div class="maintenance-details">
+                            <h3>Water Tank Cleaning</h3>
+                            <p>Cleaning and disinfection of main water storage tank</p>
+                            <p class="maintenance-date"><i class="bi bi-calendar3"></i> Nov 15, 2023, 8:00 AM - 4:00 PM</p>
+                        </div>
+                        <div class="maintenance-status scheduled">
+                            Scheduled
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="dashboard-footer">
+                <p> &copy; 2025 Gram Dhara Water Management System | <span class="version">Ministry of Water Resources</span></p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Emergency Contacts Overlay -->
+    <div id="emergency-overlay" class="emergency-overlay">
+        <div class="emergency-container">
+            <div class="emergency-header">
+                <h2><i class="bi bi-telephone-fill mr-2"></i>Emergency Contacts</h2>
+                <button id="close-emergency" class="close-btn"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="emergency-content">
+                <a href="tel:1916" class="emergency-card">
+                    <div class="emergency-icon water">
+                        <i class="bi bi-droplet-fill"></i>
+                    </div>
+                    <div class="emergency-info">
+                        <h3>Water Emergency</h3>
+                        <p class="phone-number">1916</p>
+                    </div>
+                    <div class="call-icon">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+                </a>
+
+                <a href="tel:108" class="emergency-card">
+                    <div class="emergency-icon medical">
+                        <i class="bi bi-hospital"></i>
+                    </div>
+                    <div class="emergency-info">
+                        <h3>Medical Emergency</h3>
+                        <p class="phone-number">108</p>
+                    </div>
+                    <div class="call-icon">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+                </a>
+
+                <a href="tel:100" class="emergency-card">
+                    <div class="emergency-icon police">
+                        <i class="bi bi-shield"></i>
+                    </div>
+                    <div class="emergency-info">
+                        <h3>Police</h3>
+                        <p class="phone-number">100</p>
+                    </div>
+                    <div class="call-icon">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+                </a>
+
+                <a href="tel:1070" class="emergency-card">
+                    <div class="emergency-icon disaster">
+                        <i class="bi bi-cloud-lightning-rain"></i>
+                    </div>
+                    <div class="emergency-info">
+                        <h3>Disaster Management</h3>
+                        <p class="phone-number">1070</p>
+                    </div>
+                    <div class="call-icon">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/api-client.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sidebar toggle functionality
+            const menuToggle = document.getElementById('menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+                document.body.classList.toggle('sidebar-open');
+            });
+
+            // Emergency contacts functionality
+            const emergencyBtn = document.getElementById('emergency-contact-btn');
+            const emergencyOverlay = document.getElementById('emergency-overlay');
+            const closeEmergency = document.getElementById('close-emergency');
+            
+            emergencyBtn.addEventListener('click', function() {
+                emergencyOverlay.style.display = 'flex';
+                setTimeout(() => {
+                    emergencyOverlay.classList.add('active');
+                }, 10);
+            });
+            
+            closeEmergency.addEventListener('click', function() {
+                emergencyOverlay.classList.remove('active');
+                setTimeout(() => {
+                    emergencyOverlay.style.display = 'none';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+
+</html>

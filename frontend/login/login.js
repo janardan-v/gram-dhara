@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const user = JSON.parse(userJson);
                 if (user && user.role) {
                     if (user.role === 'super_admin' || user.role === 'department_admin') {
-                        window.location.href = 'dashboard/admin/admin-dashboard.html';
+                        window.location.href = '../dashboard/admin/admin-dashboard.html';
                     } else {
-                        window.location.href = 'dashboard/user/user-dashboard.html';
+                        window.location.href = '../dashboard/user/user-dashboard.html';
                     }
                     return;
                 }
@@ -115,13 +115,13 @@ document.addEventListener('DOMContentLoaded', async function () {
                         if (user && user.role) {
                             console.log('Redirecting based on role:', user.role);
                             if (user.role === 'super_admin' || user.role === 'department_admin') {
-                                window.location.href = 'dashboard/admin/admin-dashboard.html';
+                                window.location.href = '../dashboard/admin/admin-dashboard.html';
                             } else {
-                                window.location.href = 'dashboard/user/user-dashboard.html';
+                                window.location.href = '../dashboard/user/user-dashboard.html';
                             }
                         } else {
                             console.log('No role found, redirecting to user dashboard');
-                            window.location.href = 'dashboard/user/user-dashboard.html';
+                            window.location.href = '../dashboard/user/user-dashboard.html';
                         }
                     }, 1500);
                 } else {
