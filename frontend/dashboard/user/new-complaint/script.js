@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         const key = categoryName.toLowerCase();
-        return iconMap[key] || 'exclamation-circle';
+        return iconMap[key] || 'bi-exclamation-circle';
     }
 
     loadCategories();
