@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories Management - Gram Dhara Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="categories.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="logo-container">
+            <img src="../../../images/fab-icon.png" alt="Gram Dhara Logo" class="logo">
+            <h2>Gram Dhara</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="../admin-dashboard.html" class="nav-item">
+                <i class="fas fa-th-large"></i> Dashboard
+            </a>
+            <a href="../complaints/complaints.html" class="nav-item">
+                <i class="fas fa-tasks"></i> Manage Reports
+            </a>
+            <a href="../departments/departments.html" class="nav-item">
+                <i class="fas fa-building"></i> Departments
+            </a>
+            <a href="#" class="nav-item active">
+                <i class="fas fa-list"></i> Categories
+            </a>
+            <a href="../notices/notices.html" class="nav-item">
+                <i class="fas fa-bullhorn"></i> Notices
+            </a>
+            <a href="../pump-status/pump-status.html" class="nav-item">
+                <i class="fas fa-tint"></i> Pump Status
+            </a>
+            <a href="../users/users.html" class="nav-item">
+                <i class="fas fa-users"></i> Manage Users
+            </a>
+            <a href="../analytics/analytics.html" class="nav-item">
+                <i class="fas fa-chart-bar"></i> Analytics
+            </a>
+            <a href="../settings/settings.html" class="nav-item">
+                <i class="fas fa-cog"></i> Settings
+            </a>
+            <a href="../../../index.html" class="nav-item logout">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <p>&copy; 2025 Gram Dhara</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <button class="menu-toggle" id="menu-toggle">
+            <span class="hamburger"></span>
+        </button>
+        <header>
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search categories..." class="search-input">
+            </div>
+            <div class="admin-profile">
+                <div class="notification">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">2</span>
+                </div>
+                <div class="admin-info">
+                    <span>Water Admin</span>
+                    <img src="../../../images/avatar.png" alt="Admin Avatar" class="admin-avatar">
+                </div>
+            </div>
+        </header>
+
+        <section class="page-header">
+            <div class="page-header-content">
+                <h1>Category Management</h1>
+                <p>Create and manage categories for water-related reports and complaints</p>
+            </div>
+            <div class="page-header-actions">
+                <button class="btn-create-category" id="create-category-btn">
+                    <i class="fas fa-plus"></i> Create New Category
+                </button>
+            </div>
+        </section>
+
+        <!-- Category List -->
+        <section class="category-list-section">
+            <div class="list-header">
+                <h2>All Categories</h2>
+                
+            </div>
+
+            <div class="category-list" id="category-list">
+                <!-- Categories will be populated by JavaScript -->
+                <div class="loading-spinner">
+                    <i class="fas fa-circle-notch fa-spin"></i>
+                    <span>Loading categories...</span>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="pagination-btn" id="prev-page" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <span class="pagination-info">Page <span id="current-page">1</span> of <span id="total-pages">1</span></span>
+                <button class="pagination-btn" id="next-page" disabled>
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Create Category Modal -->
+    <div class="modal" id="category-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-list"></i> Create New Category</h2>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="category-form">
+                    <div class="form-group">
+                        <label for="category-name">Category Name</label>
+                        <input type="text" id="category-name" placeholder="Enter category name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category-description">Description</label>
+                        <textarea id="category-description" placeholder="Enter category description" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Create Category</button>                 
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Add a debug button to test modal functionality -->
+    <script>
+        // Debug code to help identify any modal issues
+        document.addEventListener('DOMContentLoaded', function() {
+            window.debugModal = function() {
+                const modal = document.getElementById('category-modal');
+                if (modal) {
+                    console.log('Modal element found:', modal);
+                    console.log('Modal classes before toggle:', modal.classList);
+                    modal.classList.toggle('active');
+                    console.log('Modal classes after toggle:', modal.classList);
+                } else {
+                    console.error('Modal element not found!');
+                }
+            };
+        });
+    </script>
+
+    <script src="../../../js/api-client.js"></script>
+    <script src="categories.js"></script>
+</body>
+
+</html>
