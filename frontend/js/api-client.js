@@ -100,6 +100,40 @@ const authAPI = {
     }
 };
 
+const adminAPI = {
+    getAllUsers: () => {
+        return apiRequest('/api/v1/admin/users', {
+            method: 'GET'
+        });
+    },
+
+    updateUserRole: (userId, data) => {
+        return apiRequest(`/api/v1/admin/users/${userId}/role`, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+        });
+    },
+
+    deleteUser: (userId) => {
+        return apiRequest(`/api/v1/admin/users/${userId}`, {
+            method: 'DELETE'
+        });
+    },
+
+    getAllDepartments: () => {
+        return apiRequest('/api/v1/departments/all', {
+            method: 'GET'
+        });
+    },
+
+    createDepartment: (data) => {
+        return apiRequest('/api/v1/departments/create', {
+            method: 'POST',
+            body: JSON.stringify(data),
+        });
+    }
+};
+
 // Reports API endpoints - Updated with retry logic and better error handling
 const reportsAPI = {
     submit: async (formData) => {
@@ -184,6 +218,11 @@ const reportsAPI = {
     updateReportStatus: (reportId, data) => apiRequest(`/api/v1/admin/reports/${reportId}/status`, {
         method: 'PUT',
         body: JSON.stringify(data),
+    }),
+
+    assignReport: (reportId, data) => apiRequest(`/api/v1/admin/reports/${reportId}/assign`, {
+        method: 'POST',
+        body: JSON.stringify(data),
     })
 };
 
@@ -192,6 +231,13 @@ const categoriesAPI = {
     getAll: () => {
         return apiRequest('/api/v1/categories/all', {
             method: 'GET'
+        });
+    }, 
+
+    create: (data) => {
+        return apiRequest('/api/v1/categories/create', {
+            method: 'POST',
+            body: JSON.stringify(data),
         });
     }
 };
@@ -267,6 +313,7 @@ const noticeAPI = {
 
 // Make APIs globally available
 window.authAPI = authAPI;
+window.adminAPI = adminAPI;
 window.reportsAPI = reportsAPI;
 window.analyticsAPI = analyticsAPI;
 window.categoriesAPI = categoriesAPI;
