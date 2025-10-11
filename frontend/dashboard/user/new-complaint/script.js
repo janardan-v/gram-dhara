@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Success overlay buttons
     document.getElementById('track-complaint-btn').addEventListener('click', () => {
-        window.location.href = "../my-reports.html";
+        window.location.href = "../my-reports/my-reports.html";
     });
 
     document.getElementById('new-complaint-btn').addEventListener('click', () => {
@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.getElementById('back-dashboard-btn').addEventListener('click', () => {
-        window.location.href = "../user-dashboard.html";
+        window.location.href = "/dashboard/user/user-dashboard.html";
     });
 
     document.getElementById('close-success').addEventListener('click', () => {
@@ -759,7 +759,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     newBtn.onclick = () => location.reload();
                 }
                 if (dashboardBtn) {
-                    dashboardBtn.onclick = () => window.location.href = 'user-dashboard.html';
+                    dashboardBtn.onclick = () => window.location.href = '/dashboard/user/user-dashboard.html';
                 }
 
                 // Re-enable submit button
