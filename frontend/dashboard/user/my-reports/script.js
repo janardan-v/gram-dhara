@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <i class="bi bi-inbox"></i>
                     <h3>No complaints found</h3>
                     <p>You haven't filed any complaints yet, or none match your filter.</p>
-                    <a href="new-complaint.html" class="btn-primary">File New Complaint</a>
+                    <a href="../new-complaint/new-complaint.html" class="btn-primary">File New Complaint</a>
                 </div>
             `;
             return;
