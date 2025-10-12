@@ -169,8 +169,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Sort all items by date, newest first
-            combinedActivities.sort((a, b) => b.date - a.date);
-
+            combinedActivities.sort((a, b) => a.date - b.date);
+            
             // Create and append the HTML for each item
             combinedActivities.forEach(item => {
                 const itemHTML = createTimelineItemHTML(item);

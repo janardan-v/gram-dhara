@@ -1093,6 +1093,7 @@ header {
 
     .filter-controls {
         flex-wrap: wrap;
+        flex-direction: row-reverse;
     }
 
     .analytics-section {
@@ -1163,6 +1164,15 @@ header {
         padding: 20px 15px;
         overflow-x: hidden;
         margin: 0;
+    }
+
+    .issue-detail-content {
+        grid-template-columns: 1fr !important;
+    }
+
+    .pagination button {
+        width: auto !important;
+        min-width: 36px !important;
     }
 }
 
@@ -1331,7 +1341,8 @@ header {
 }
 
 .pagination button {
-    width: 36px;
+    min-width: 36px !important;
+    width: auto !important;
     height: 36px;
     border-radius: 6px;
     border: 1px solid #ddd;

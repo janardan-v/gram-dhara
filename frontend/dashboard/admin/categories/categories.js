@@ -57,9 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Event listeners
         setupEventListeners();
 
-        // Icon selector previews
-        setupIconSelectors();
-
         // Initialize logout functionality
         initializeLogoutButtons();
 

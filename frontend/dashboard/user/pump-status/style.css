@@ -1392,3 +1392,7 @@ body.dark .btn-alert-action {
         display:none;
     }
 }
+
+.section-header {
+    padding: 0 10px 10px !important;
+}

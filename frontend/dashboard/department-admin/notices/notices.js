@@ -41,7 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const deleteModal = document.getElementById('delete-modal');
     const noticeForm = document.getElementById('notice-form');
     const editNoticeForm = document.getElementById('edit-notice-form');
-
+    const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
+    const deleteCancelBtn = document.getElementById('delete-cancel-btn');
+    
     // Initialize page
     init();
 

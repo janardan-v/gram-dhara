@@ -359,17 +359,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 <td>${formattedDate}</td>
             `;
 
-            // Add event listeners for action buttons
-            const roleBtn = row.querySelector('.role-btn');
-            const deleteBtn = row.querySelector('.delete-btn');
-
-            if (user.userId === currentLoggedInUserId) {
-                roleBtn.disabled = true;
-                roleBtn.title = "You cannot change your own role.";
-                deleteBtn.disabled = true; // Also disable deleting oneself
-                deleteBtn.title = "You cannot delete your own account.";
-            }
-
             usersList.appendChild(row);
         });
     }
